@@ -1,11 +1,17 @@
-def harga_bayaran(.........):
+def harga_bayaran(jenisbuku, kuantiti): 
+    harga_seunit = {1: 6.00, 2: 7.50, 3: 8.90}
+    harga_unit = harga_seunit.get(jenisbuku, 0)
+    harga_total = harga_unit * kuantiti
     
+    kadar_diskaun = {1: 10.00, 2: 8.00, 3: 5.00}
+    diskaun_kadar = kadar_diskaun.get(jenisbuku, 0)
+    potongan_harga = kira_diskaun(harga_total, diskaun_kadar)
+    
+    return potongan_harga, harga_total - potongan_harga
 
-
-
-
-
-    return 
+def kira_diskaun(harga, kadar_diskaun):
+    diskaun = harga * kadar_diskaun / 100
+    return diskaun
 
 def main():
     print("Senarai belian buku:")
